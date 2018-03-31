@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*text-decoration: none;*/
+    /*outline: thin;*/
+    /*border: medium;*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+    /*box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*-webkit-box-sizing: border-box;*/
+}
+body {
+    padding: 0 10px;
+    margin: 10px auto;
+    background: snow;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkblue;
+    font-size: 16px;
+}
+.card{
+    margin-bottom: 5px;
+
+}
+
+.singledata{
+    color: snow;
+    font-size: x-small;
+    background-color:cadetblue;
+    border: solid;
+    width: 70%;
+    padding: 2px;
+    opacity: 0.72;
+}
+.doubledata{
+    color: snow;
+    font-size: 10px;
+    background-color:#3a87ad;
+    border:solid;
+    padding: 2px;
+    opacity: 0.72;
+}
+br{
+    padding: 0;
+    line-height: 0;
+}
+/*#wrapper{*/
+    /*height: 50%;*/
+    /*width: 100%;*/
+/*}*/
+/*.date{*/
+    /*border: 1px solid;*/
+/*}*/
+.inpt{
+    width: 45%;
+}
+#wrapper{
+    border: thick #000000;
+}
+table,th,td{
+    border: thick black;
+}
+/* Popup box BEGIN */
+.hover_bkgr{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr> div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc, .singledata , .doubledata{
+    cursor: pointer;
+    /*font-size: 20px;*/
+    /*margin: 20px;*/
+    /*display: inline-block;*/
+    /*font-weight: bold;*/
+}
+/* Popup box BEGIN */

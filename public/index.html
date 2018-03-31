@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Allocation</title>
+
+    <link rel='stylesheet' href='./fullcalendar-3.9.0/fullcalendar.css' />
+    <script src='./fullcalendar-3.9.0/lib/jquery.min.js'></script>
+    <script src='./fullcalendar-3.9.0/lib/moment.min.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src='./fullcalendar-3.9.0/fullcalendar.js'></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="hover_bkgr">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
+        <b><u><h id="popup_Heading"></h></u></b>
+        <div class="pure-form pure-form-aligned">
+            <p id="popup_type"></p>
+            <div class="row">
+        <label for="popup_price" id="label_price" class="col">Price:</label>
+                <input type="hidden" id="price_date">
+                <input type="number" name="popup_price" id="popup_price" class="col col-5">&nbsp;
+                <button type="button" class="col btn btn-outline-success" id="submit_price">Submit</button>
+            </div>
+        <br>
+        <div class="row">
+                <input type="hidden" id="avail_date">
+                <label for="popup_price" id="label_avail" class="col">Availabilty:</label><br>
+                <input type="number" name="popup_price" id="popup_avail" class="col col-5"  min="1" max="5">&nbsp;
+                <button type="submit" class="col btn btn-outline-success" id="submit_avail">Submit</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="container col-12 col-md-12 ">
+    <div class="row ">
+        <div class="col align-items-center col-md-3 col-3">
+        <div class="card card-body">
+        <form class="pure-form pure-form-aligned" action="http://localhost:3000/submitform" method="post">
+            <h4>Bulk Operations</h4>
+                <fieldset>
+                    <div class="card card-body">
+                        <label for="type" class="">Select Room:  </label>
+                        <select class="" name="type" id="type">
+                            <option value="single" selected="selected">Single Room</option>
+                            <option value="double">Double Room</option>
+                        </select>
+                    </div>
+
+            <div class="card">
+
+                    <label class="">Refine Days:  </label><br>
+                <div class="row">
+                    <div class="col">
+
+                    <label for="start_date">Start Date: </label>
+                    <input required type="text" name="start_date" id="start_date" class="date col-8"><br><br>
+                    <label for="end_date">End Date: </label>
+                    <input required type="text" name="end_date" id="end_date" class="date col-8"><br><br>
+                    </div>
+                </div>
+                    <div class="row ">
+                        <div class="col">
+                            <input type="checkbox" name="days" id="Days"  value="8" checked>All days<br>
+                            <input  type="checkbox" name="days"  value="9">Weekends<br>
+                            <input  type="checkbox" name="days"  value="10">Weekdays<br>
+                            <input  type="checkbox" name="days"  value="1">Monday<br>
+                            <input  type="checkbox" name="days"  value="2">Tuesday<br>
+                        </div>
+                        <div class="col">
+
+                            <input  type="checkbox" name="days"  value="3">Wednesday<br>
+                            <input  type="checkbox" name="days"  value="4">Thursday<br>
+                            <input  type="checkbox" name="days"  value="5">Friday<br>
+                            <input  type="checkbox" name="days"  value="6">Saturday<br>
+                            <input  type="checkbox" name="days"  value="7">Sunday<br>
+                        </div>
+                    </div>
+
+
+            </div>
+                    <div class="card card-body">
+                        <div class="row">
+                            <label for="price" class="col">Change Price to</label>
+                            <input required class="col" id="price" type="number" name="price" >
+                    </div>
+                    </div>
+                    <div class="card card-body">
+                        <div class="row">
+                            <label for="availability" class="col">Change availabilty to</label>
+                            <input required class="col" id="availability" type="number"name="availability" min="1" max="5">
+                        </div>
+                    </div>
+            <div class="card-body card">
+            <div class="row">
+                    <button type="button" class=" col btn btn-outline-danger" >Cancel</button>
+                <div class="col"></div>
+                    <button type="submit" class="col btn btn-outline-success" id="submit">Submit</button>
+            </div>
+            </div>
+                </fieldset>
+        </form>
+        </div>
+        </div>
+
+            <div class="col">
+                <div class="card card-body" id="wrapper">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script>
+//            $(".trigger_popup").click(function(){
+
+//            });
+//        $('.hover_bkgr').click(function(){
+//            $('.hover_bkgr').hide();
+//        });
+        $('.popupCloseButton').click(function(){
+            $('.hover_bkgr').hide();
+        });
+        $('#start_date').datepicker({
+            onSelect: function(dateText, inst){
+
+                $('#end_date').datepicker('option', 'minDate', new Date(dateText));
+            },
+        });
+
+        $('#end_date').datepicker({
+            onSelect: function(dateText, inst){
+                $('#start_date').datepicker('option', 'maxDate', new Date(dateText));
+            }
+        });
+
+        $("#submit_price").click(function(){
+            console.log("changing price");
+            let date = moment($('#popup_Heading').html(),"DD-MM-YYYY");
+            console.log(date.format('MM_DD_YYYY'));
+            date = date.format('MM_DD_YYYY');
+            $.post("/submitQuery",
+                {
+                    date: date,
+                    type: $('#popup_type').attr('value'),
+                    price:$('#popup_price').val()
+                },
+                function(data, status){
+                        location.reload();
+//                    alert("Data: " + data + "\nStatus: " + status);
+                });
+        });
+
+        $("#submit_avail").click(function(){
+            console.log("changing avail");
+            let date = moment($('#popup_Heading').html(),"DD-MM-YYYY");
+            console.log(date.format('MM_DD_YYYY'));
+            date = date.format('MM_DD_YYYY');
+            $.post("/submitQuery",
+                {
+                    date: date,
+                    type: $('#popup_type').attr('value'),
+                    availability:$('#popup_avail').val()
+                },
+                function(data, status){
+                    location.reload();
+                    console.log("changed avail");
+        //                    alert("Data: " + data + "\nStatus: " + status);
+                });
+        });
+
+
+        function start(info) {
+
+        for(var i=0;i<info.length;i++){
+            info[i].Date = moment(info[i].Date).add(moment().utcOffset(),'minutes');
+            //            console.log(info[i].Date);
+        }
+            console.log(info[0].Date);
+            // page is now ready, initialize the calendar...
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+//            dayClick: function(date, jsEvent, view) {
+//
+//                alert('Clicked on: ' + date.format());
+//
+//            },
+            dayRender: function (date, cell) {
+                for (var i = 0; i < info.length; i++) {
+//                    console.log(info[i].id);
+//                    console.log(date);
+//                    console.log(typeof(info[i].id));
+
+                    if (date.isSame(info[i].Date)) {
+                        var s_o = 5-info[i].Single_occupancy;
+                        var d_o = 5-info[i].Double_occupancy;
+                        var m =info[i].Date._d.getMonth() +1;
+                        cell.html('<div class="singledata " onclick=renderSQ("' + info[i].Date._d.getDate()+'/'+(m)+'/'+ info[i].Date._d.getFullYear()+ '","single",'+info[i].Single_price+','+s_o+')><b>Single Room</b><br>Price:-' +  info[i].Single_price+ '<br>Availaibility:-' + s_o + '</div>' +
+                            '<div class="doubledata " onclick=renderSQ("' + info[i].Date._d.getDate()+'/'+(m)+'/'+ info[i].Date._d.getFullYear()+ '","double",'+info[i].Double_price+','+d_o+')><b>Double Room</b><br>Price:-' +  info[i].Double_price+ '<br>Availaibility:-' + d_o + '</div>');
+
+                    }
+//               }
+
+                }
+
+            }
+
+        })
+
+    }
+
+        function getInfo(month,year) {
+            let info = [];
+            $.post('/getInfo',{ month:month+1, year:year},function (data,status) {
+                let i=0;
+                for(day of data){
+                    info[i]=day;
+                    i++;
+                }
+//               console.log(info);
+                start(info);
+            })
+
+        }
+
+
+        function getMonthandYear(){
+            var date = new Date();
+//            console.log(date);
+            var month_int = date.getMonth();
+            var year = date.getFullYear();
+            console.log(month_int,year);
+            getInfo(month_int,year);
+            //you now have the visible month as an integer from 0-11
+        }
+        function renderSQ(date,type,price,avail){
+            console.log(date);
+            console.log(type);
+            console.log(price);
+            if(type=="single")
+            {
+                $('#popup_type').html("Single Room :");
+            }
+            else if(type=="double")
+            {
+                $('#popup_type').html("Double Room :");
+            }
+            document.getElementById("popup_Heading").innerHTML=date;
+            document.getElementById('popup_type').setAttribute('value',type);
+            document.getElementById('popup_price').setAttribute('value',price);
+            document.getElementById('popup_avail').setAttribute('value',avail);
+
+            $('.hover_bkgr').show();
+        }
+        getMonthandYear();
+
+
+
+
+</script>
+</body>
+</html>
