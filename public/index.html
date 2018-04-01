@@ -167,17 +167,21 @@
             let date = moment($('#popup_Heading').html(),"DD-MM-YYYY");
             console.log(date.format('MM_DD_YYYY'));
             date = date.format('MM_DD_YYYY');
-            $.post("/submitQuery",
-                {
-                    date: date,
-                    type: $('#popup_type').attr('value'),
-                    availability:$('#popup_avail').val()
-                },
-                function(data, status){
-                    location.reload();
-                    console.log("changed avail");
-        //                    alert("Data: " + data + "\nStatus: " + status);
-                });
+            let a = $('#popup_avail').val()
+            if(a>=0 && a<=5) {
+                $.post("/submitQuery",
+                    {
+                        date: date,
+                        type: $('#popup_type').attr('value'),
+                        availability: $('#popup_avail').val()
+                    },
+                    function (data, status) {
+                        location.reload();
+                        console.log("changed avail");
+                        //                    alert("Data: " + data + "\nStatus: " + status);
+                    });
+            }
+
         });
 
 
@@ -185,7 +189,7 @@
 
         for(var i=0;i<info.length;i++){
             info[i].Date = moment(info[i].Date).add(moment().utcOffset(),'minutes');
-                        console.log(info[i].Date);
+            //            console.log(info[i].Date);
         }
             console.log(info[0].Date);
             // page is now ready, initialize the calendar...
