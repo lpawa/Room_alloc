@@ -64,7 +64,7 @@ function getInfo(cb,obj) {
         console.log('Connected to postgres! Getting schemas...');
         let data=[];
 
-        let query= "SELECT * from room WHERE DATE_PART('month',id) = " + obj.month + " AND DATE_PART('year',id) = "+obj.year+" ORDER BY id;";
+        let query= "SELECT * from room WHERE DATE_PART('year',id) = "+obj.year+" ORDER BY id;";
         console.log(query);
         client.query(query, function (err, result) {
             done();

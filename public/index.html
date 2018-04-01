@@ -185,7 +185,7 @@
 
         for(var i=0;i<info.length;i++){
             info[i].Date = moment(info[i].Date).add(moment().utcOffset(),'minutes');
-            //            console.log(info[i].Date);
+                        console.log(info[i].Date);
         }
             console.log(info[0].Date);
             // page is now ready, initialize the calendar...
@@ -197,11 +197,12 @@
 //
 //            },
             dayRender: function (date, cell) {
+                console.log("rendering");
                 for (var i = 0; i < info.length; i++) {
 //                    console.log(info[i].id);
 //                    console.log(date);
 //                    console.log(typeof(info[i].id));
-                    console.log("rendering");
+
                     if (date.isSame(info[i].Date)) {
 
                         var s_o = 5-info[i].Single_occupancy;
@@ -214,8 +215,16 @@
 //               }
 
                 }
+                
 
+            },
+            viewRender:function (view,element) {
+                console.log("view changed");
+                console.log(view.start);
+                console.log(view.start);
+                getInfo(view.start._d.getMonth(),view.start._d.getFullYear())
             }
+            
 
         })
 
@@ -231,6 +240,7 @@
                 }
 //               console.log(info);
                 start(info);
+
             })
 
         }
