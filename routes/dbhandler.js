@@ -2,36 +2,36 @@
  * Created by lakshya on 3/28/18.
  */
 const pg = require('pg');
-// const url=require('url');
+const url=require('url');
+
+const conString = 'postgres://rsoihqhggqkyyr:3fbd19468eaac35f26e3d95d55ad3193fa1cadca4ef96bb647e29bdc647950bb@ec2-54-243-63-13.compute-1.amazonaws.com:5432/d4oil6rrt8ddsj' ;// make sure to match your own database's credentials
 //
-const conString = '' ;// make sure to match your own database's credentials
-//
-// const params = url.parse(conString);
-// const auth = params.auth.split(':');
+const params = url.parse(conString);
+const auth = params.auth.split(':');
 
 pg.defaults.ssl = true;
 // /var client = new Client({user: 'lakshya', database: 'hotel'});
 
-// const config = {
-//     user: auth[0],
-//     password: auth[1],
-//     host: params.hostname,
-//     port: params.port,
-//     database: params.pathname.split('/')[1],
-//     ssl: true
-// };
-
-var config2 = {
-    user: 'postgres', //env var: PGUSER
-    database: 'hotel', //env var: PGDATABASE
-    password: 'abc', //env var: PGPASSWORD
-    host: 'localhost', // Server hosting the postgres database
-    port: 5432, //env var: PGPORT
-    max: 10, // max number of clients in the pool
-    idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
+const config = {
+    user: auth[0],
+    password: auth[1],
+    host: params.hostname,
+    port: params.port,
+    database: params.pathname.split('/')[1],
+    ssl: true
 };
 
-var pool = new pg.Pool(config2);
+// var config2 = {
+//     user: 'postgres', //env var: PGUSER
+//     database: 'hotel', //env var: PGDATABASE
+//     password: 'abc', //env var: PGPASSWORD
+//     host: 'localhost', // Server hosting the postgres database
+//     port: 5432, //env var: PGPORT
+//     max: 10, // max number of clients in the pool
+//     idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
+// };
+
+var pool = new pg.Pool(config);
 
     // pg.connect(conString, function (err, client, done) {
     //     if (err) {
