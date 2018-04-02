@@ -11,6 +11,7 @@
     <script src='./fullcalendar-3.9.0/fullcalendar.js'></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -23,16 +24,14 @@
             <p id="popup_type"></p>
             <div class="row">
         <label for="popup_price" id="label_price" class="col">Price:</label>
-                <input type="hidden" id="price_date">
                 <input type="number" name="popup_price" id="popup_price" class="col col-5">&nbsp;
-                <button type="button" class="col btn btn-outline-success" id="submit_price">Submit</button>
+                <button type="button" class="col btn btn-outline-success" id="submit_price"><i class="fas fa-check-circle"></i></span> </button>
             </div>
         <br>
         <div class="row">
-                <input type="hidden" id="avail_date">
                 <label for="popup_price" id="label_avail" class="col">Availabilty:</label><br>
                 <input type="number" name="popup_price" id="popup_avail" class="col col-5"  min="1" max="5">&nbsp;
-                <button type="submit" class="col btn btn-outline-success" id="submit_avail">Submit</button>
+                <button type="submit" class="col btn btn-outline-success" id="submit_avail"><i class="fas fa-check-circle"></i></button>
             </div>
         </div>
 

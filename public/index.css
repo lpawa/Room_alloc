@@ -120,4 +120,11 @@ table,th,td{
 .singledata:hover , .doubledata:hover{
     opacity: 1;
 }
+#label_avail , #label_price{
+    font-size: large;
+    margin-top:6px;
+}
+#popup_Heading{
+    font-size: larger;
+}
 /* Popup box BEGIN */
