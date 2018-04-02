@@ -264,7 +264,7 @@ function start(info) {
                     var s_o = 5-info[i].Single_occupancy;
                     var d_o = 5-info[i].Double_occupancy;
                     var m =info[i].Date._d.getMonth() +1;
-                    cell.html('<div class="singledata " onclick=renderSQ("' + info[i].Date._d.getDate()+'/'+(m)+'/'+ info[i].Date._d.getFullYear()+ '","single",'+info[i].Single_price+','+s_o+')><b>Single Room</b><br>Price:-' +  info[i].Single_price+ '<br>Availaibility:-' + s_o + '</div>' +
+                    cell.html('<div class="singledata"><div class="" onclick=renderSQ("' + info[i].Date._d.getDate()+'/'+(m)+'/'+ info[i].Date._d.getFullYear()+ '","single",'+info[i].Single_price+','+s_o+')><b>Single Room</b><br>Price:-' +  info[i].Single_price+ '<br>Availaibility:-' + s_o + '</div></div>' +
                         '<div class="doubledata " onclick=renderSQ("' + info[i].Date._d.getDate()+'/'+(m)+'/'+ info[i].Date._d.getFullYear()+ '","double",'+info[i].Double_price+','+d_o+')><b>Double Room</b><br>Price:-' +  info[i].Double_price+ '<br>Availaibility:-' + d_o + '</div>');
 
                 }

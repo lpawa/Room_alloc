@@ -117,4 +117,7 @@ table,th,td{
     /*display: inline-block;*/
     /*font-weight: bold;*/
 }
+.singledata:hover , .doubledata:hover{
+    opacity: 1;
+}
 /* Popup box BEGIN */
