@@ -37,9 +37,16 @@ app.post('/getInfo',function (req,res) {
             month:month,
             year:year
         };
-        dbhandler.getInfo(function (info) {
-            res.send(info, 200);
-        }, obj);
+        if(obj.month && obj.year) {
+            dbhandler.getInfo(function (info) {
+                res.send(info, 200);
+            }, obj);
+        }
+        else{
+            var err = new Error('Not Found');
+            err.status = 404;
+            res.send(err);
+        }
     }
 });
 app.post('/submitPriceQuery',function (req,res) {
@@ -95,6 +102,7 @@ app.use(function(req, res, next) {
 
   var err = new Error('Not Found');
   err.status = 404;
+  throw(err);
   next(err);
 });
 
