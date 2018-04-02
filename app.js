@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',express.static(path.join(__dirname, 'public')));
 app.use('/users', users);
-app.post('/getInfo',function (req,res) {
+app.post('/getInfo',function (req,res,next) {
     console.log(req.body);
     if(req.body.month && req.body.year) {
         var month = req.body.month;
@@ -39,39 +39,38 @@ app.post('/getInfo',function (req,res) {
         };
         if(obj.month && obj.year) {
             dbhandler.getInfo(function (info) {
-                res.send(info, 200);
+                res.status(200).send(info);
             }, obj);
         }
-        else{
-            var err = new Error('Not Found');
-            err.status = 404;
-            res.send(err);
-        }
+
+    }
+    else{
+        var err = new Error('Invalid content type!');
+        err.status=404;
+        err.statusCode =404;
+        res.status(404).send({ error: err })
     }
 });
-app.post('/submitPriceQuery',function (req,res) {
-    console.log(req.body);
-    // dbhandler.AlterData(function (result) {
-    //     res.send(result);
-    // },req.body);
-});
+
 app.post('/submitQuery',function (req,res) {
     console.log(req.body);
     // dbhandler.AlterData(function (result) {
     //     res.send(result);
     // },req.body);
-    var newInfo = {
-        operation:"single",
-        type:req.body.type,
-        date:req.body.date,
-        price:req.body.price,
-        availability:req.body.availability
-    };
+    if(req.body && req.body.type && req.body.date && (req.body.price || req.body.availability)) {
+        var newInfo = {
+            operation: "single",
+            type: req.body.type,
+            date: req.body.date,
+            price: req.body.price,
+            availability: req.body.availability
+        };
 
-    dbhandler.AlterData(function (result) {
-        console.log(result.status);
-        res.send(200);
-    },newInfo);
+        dbhandler.AlterData(function (result) {
+            console.log(result.status);
+            res.send(200);
+        }, newInfo);
+    }
 });
 app.post('/submitform',function (req,res) {
     console.log(req.body);
@@ -103,6 +102,7 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   throw(err);
+  res.status(404).send({ error: err });
   next(err);
 });
 

@@ -1,5 +1,5 @@
 /**
- * Created by lakshya on 4/1/18.
+ * Created by lakshya on 4/2/18.
  */
 'use strict';
 
@@ -22,17 +22,6 @@ describe('API endpoint /getInfo', function() {
 
     });
 
-    // // GET - List all colors
-    // it('should return all data', function() {
-    //     return chai.request(app)
-    //         .post('/getInfo')
-    //         .then(function(res) {
-    //             expect(res).to.have.status(200);
-    //             expect(res).to.be.json;
-    //             expect(res.body).to.be.an('object');
-    //             expect(res.body.results).to.be.an('array');
-    //         });
-    // });
 
     // GET - Invalid path
     it('should return Not Found', function() {
@@ -49,7 +38,7 @@ describe('API endpoint /getInfo', function() {
             });
     });
 
-    // POST - Get data
+    // POST - Add new color
     it('should get info', function() {
         return chai.request(app)
             .post('/getInfo')

@@ -43,7 +43,7 @@
     <div class="row ">
         <div class="col align-items-center col-md-3 col-3">
         <div class="card card-body">
-        <form class="pure-form pure-form-aligned" action="http://localhost:3000/submitform" method="post">
+        <form class="pure-form pure-form-aligned" action="https://blueberry-cupcake-52472.herokuapp.com/submitform" method="post">
             <h4>Bulk Operations</h4>
                 <fieldset>
                     <div class="card card-body">
@@ -198,7 +198,7 @@
                 console.log("starting calendar");
                 for(let i=0;i<info.length;i++){
                     info[i].Date = moment(info[i].Date);
-//                    info[i].Date = moment(info[i].Date).add(moment().utcOffset(),'minutes');
+
                     //            console.log(info[i].Date);
                 }
                 start(info);
@@ -240,7 +240,10 @@
         getMonthandYear();
 
 function start(info) {
-
+    for(let i=0;i<info.length;i++){
+        info[i].DateOffset = info[i].Date.add(moment().utcOffset(),'minutes');
+        //            console.log(info[i].Date);
+    }
     console.log("Got info :-" + info[0].Date);
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
@@ -257,7 +260,7 @@ function start(info) {
 //                    console.log(date);
 //                    console.log(typeof(info[i].id));
 
-                if (date.isSame(info[i].Date)) {
+                if (date.isSame(info[i].Date) || date.isSame(info[i].DateOffset)) {
 
                     var s_o = 5-info[i].Single_occupancy;
                     var d_o = 5-info[i].Double_occupancy;
@@ -274,11 +277,11 @@ function start(info) {
 
         },
         viewRender:function (view,element) {
-            console.log("view changed");
-            console.log(view.start);
-            console.log(view.start);
-            getInfo(view.start._d.getMonth(),view.start._d.getFullYear())
-            $("#calendar").fullCalendar("render");
+//            console.log("view changed");
+//            console.log(view.start);
+//            console.log(view.start);
+//            getInfo(view.start._d.getMonth(),view.start._d.getFullYear());
+//            $("#calendar").fullCalendar("render");
         }
 
 
