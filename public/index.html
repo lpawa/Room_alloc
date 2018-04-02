@@ -197,7 +197,8 @@
 //               console.log(info);
                 console.log("starting calendar");
                 for(let i=0;i<info.length;i++){
-                    info[i].Date = moment(info[i].Date).add(moment().utcOffset(),'minutes');
+                    info[i].Date = moment(info[i].Date);
+//                    info[i].Date = moment(info[i].Date).add(moment().utcOffset(),'minutes');
                     //            console.log(info[i].Date);
                 }
                 start(info);
@@ -252,8 +253,8 @@ function start(info) {
         dayRender: function (date, cell) {
             console.log("rendering");
             for (var i = 0; i < info.length; i++) {
-                    console.log(info[i].Date);
-                    console.log(date);
+//                    console.log(info[i].Date);
+//                    console.log(date);
 //                    console.log(typeof(info[i].id));
 
                 if (date.isSame(info[i].Date)) {
