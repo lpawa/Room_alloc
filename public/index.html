@@ -198,6 +198,7 @@
                 console.log("starting calendar");
                 for(let i=0;i<info.length;i++){
                     info[i].Date = moment(info[i].Date);
+                    info[i].DateOffset = info[i].Date.add(moment().utcOffset(),'minutes');
 
                     //            console.log(info[i].Date);
                 }
@@ -240,10 +241,6 @@
         getMonthandYear();
 
 function start(info) {
-    for(let i=0;i<info.length;i++){
-        info[i].DateOffset = info[i].Date.add(moment().utcOffset(),'minutes');
-        //            console.log(info[i].Date);
-    }
     console.log("Got info :-" + info[0].Date);
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
@@ -257,10 +254,12 @@ function start(info) {
             console.log("rendering");
             for (var i = 0; i < info.length; i++) {
 //                    console.log(info[i].Date);
+//                    console.log(info[i].DateOffset);
 //                    console.log(date);
-//                    console.log(typeof(info[i].id));
 
-                if (date.isSame(info[i].Date) || date.isSame(info[i].DateOffset)) {
+                    //                    console.log(typeof(info[i].id));
+
+                if ((date._d.getMonth()==(info[i].Date._d.getMonth())) && (date._d.getDate() == info[i].Date._d.getDate()) && (date._d.getFullYear() == info[i].Date._d.getFullYear())) {
 
                     var s_o = 5-info[i].Single_occupancy;
                     var d_o = 5-info[i].Double_occupancy;
