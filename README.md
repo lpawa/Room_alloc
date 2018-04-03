@@ -7,9 +7,12 @@ Frontend - HTML5+CSS3
 For testing I have used Chai + Mocha js
 
 In order to run the code,
-Clone the repo and run- 
+Clone the repo and run-
+
 npm install //for installing the dependencies
+
 npm start //for running the server
+
 npm test //for running the test scripts
 
 Also, note that I have created a sample database and hosted it online..
