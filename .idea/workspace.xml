@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e23e65f-de06-468a-9467-4a33b7085357" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/dbhandler.js" afterPath="$PROJECT_DIR$/routes/dbhandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/API-2.js" afterPath="$PROJECT_DIR$/test/API-2.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,7 +18,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
@@ -62,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbhandler.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dbhandler.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/dbhandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="186" column="5" lean-forward="true" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
+            <state relative-caret-position="121">
+              <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -77,7 +75,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
+            <state relative-caret-position="-2196">
               <caret line="31" column="68" lean-forward="false" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
               <folding>
                 <element signature="e#1513#1519#0" expanded="true" />
@@ -135,8 +133,8 @@
         <option value="$PROJECT_DIR$/public/index.css" />
         <option value="$PROJECT_DIR$/test/API-2.js" />
         <option value="$PROJECT_DIR$/test/API-3.js" />
-        <option value="$PROJECT_DIR$/routes/dbhandler.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/dbhandler.js" />
       </list>
     </option>
   </component>
@@ -364,12 +362,12 @@
       <workItem from="1522663370544" duration="10619000" />
       <workItem from="1522708580822" duration="953000" />
       <workItem from="1522709832785" duration="3965000" />
-      <workItem from="1522749082153" duration="2334000" />
+      <workItem from="1522749082153" duration="3001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111173000" />
+    <option name="totallyTimeSpent" value="111840000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -382,7 +380,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -390,7 +387,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5308848" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5308848" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -799,17 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="31" column="68" lean-forward="false" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
-          <folding>
-            <element signature="e#1513#1519#0" expanded="true" />
-            <element signature="e#1926#1932#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/API-1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -828,16 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dbhandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="186" column="5" lean-forward="true" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/API-3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -846,11 +822,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2196">
+          <caret line="31" column="68" lean-forward="false" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+          <folding>
+            <element signature="e#1513#1519#0" expanded="true" />
+            <element signature="e#1926#1932#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="93" column="4" lean-forward="false" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dbhandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
