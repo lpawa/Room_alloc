@@ -1,10 +1,15 @@
 # Room_allocation
 This is an assignment to mark the prices and availability of rooms using bulk or single queries.
 Technological Stack Used:-
+
 Backend- NodeJs with Express Framework
+
 Database- Postgres Sql
+
 Frontend - HTML5+CSS3
+
 For testing I have used Chai + Mocha js
+
 
 In order to run the code,
 Clone the repo and run-
