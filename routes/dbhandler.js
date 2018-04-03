@@ -122,31 +122,57 @@ function bulkQueryBuilder(data) {
     query3 = " ;";
     if(data.days) {
         let days = new Array(8).fill(0);
-        for(var i=0;i<data.days.length;i++){
-            if(data.days[i]==8 || data.days==8){
-                days.fill(1);
-                break;
+        if(data.days.length) {
+            for (var i = 0; i < data.days.length; i++) {
+                if (data.days[i] == 8 || data.days == 8) {
+                    days.fill(1);
+                    break;
+                }
+                else if (data.days[i] == 9 || data.days == 8) {
+                    days[5] = 1;
+                    days[6] = 1;
+                    days[7] = 1;
+                }
+                else if (data.days[i] == 10 || data.days == 10) {
+                    days[1] = 1;
+                    days[2] = 1;
+                    days[3] = 1;
+                    days[4] = 1;
+                }
+                else if ((data.days[i] >= 1 && data.days[i] <= 7) || (data.days >= 1 && data.days[i] <= 7)) {
+                    if (data.days[i]) {
+                        days[data.days[i]] = 1;
+                    }
+                    else {
+                        days[data.days] = 1;
+                    }
+                }
+                console.log(days);
             }
-            else if(data.days[i]==9 || data.days==8){
+        }
+        else{
+            if(data.days==8){
+                days.fill(1);
+            }
+            else if(data.days==8){
                 days[5]=1;
                 days[6]=1;
                 days[7]=1;
             }
-            else if(data.days[i]==10 || data.days==10){
+            else if(data.days==10){
                 days[1]=1;
                 days[2]=1;
                 days[3]=1;
                 days[4]=1;
             }
-            else if((data.days[i]>=1 && data.days[i]<=7) || (data.days>=1 && data.days[i]<=7) ){
-                if(data.days[i]) {
+            else if((data.days>=1 && data.days[i]<=7) ) {
+                if (data.days[i]) {
                     days[data.days[i]] = 1;
                 }
-                else{
+                else {
                     days[data.days] = 1;
                 }
             }
-            console.log(days);
         }
 
 

@@ -5,13 +5,13 @@
 
 const chai = require('chai');
 const expect = require('chai').expect;
-const assert = require('assert')
+const assert = require('assert');
 
 chai.use(require('chai-http'));
 
 const app = require('../app.js'); // Our app
 
-describe('API endpoint /getInfo', function() {
+describe('API endpoint /submitQuery', function() {
     this.timeout(10000); // How long to wait for a response (ms)
 
     before(function() {
@@ -41,24 +41,22 @@ describe('API endpoint /getInfo', function() {
     // POST - Add new color
     it('should get info', function() {
         return chai.request(app)
-            .post('/getInfo')
+            .post('/submitQuery')
             .send({
-                month:3,
-                year:2018
+                type: "single",
+                date: '4/1/2018',
+                price: 8000,
+                availability: 2
             })
             .then(function(res) {
                 expect(res).to.have.status(200);
-                expect(res).to.be.json;
-                expect(res.body).to.be.an('array');
-                assert.equal(res.body.length, 31, 'Response should contain exactly 31 resources')
-
             });
     });
 
     // POST - Bad Request
     it('should return Bad Request', function() {
         return chai.request(app)
-            .post('/getInfo')
+            .post('/submitQuery')
             .type('form')
             .send({
                 color: 'YELLOW'
@@ -70,7 +68,6 @@ describe('API endpoint /getInfo', function() {
                 throw err;
             })
             .catch(function(err) {
-
                 expect(err).to.have.status(400);
             });
     });

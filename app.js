@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',express.static(path.join(__dirname, 'public')));
-app.use('/users', users);
+
 app.post('/getInfo',function (req,res,next) {
     console.log(req.body);
     if(req.body.month && req.body.year) {
@@ -68,8 +68,14 @@ app.post('/submitQuery',function (req,res) {
 
         dbhandler.AlterData(function (result) {
             console.log(result.status);
-            res.send(200);
+            res.status(200).send('Successful!');
         }, newInfo);
+    }
+    else{
+        let err = new Error('Invalid content type!');
+        err.status = 404;
+        err.statusCode = 404;
+        res.status(404).send({ error: err });
     }
 });
 app.post('/submitform',function (req,res) {
@@ -81,20 +87,39 @@ app.post('/submitform',function (req,res) {
     // console.log(req.body.availability);
     // console.log(req.body.days);
     // console.log(req.body.start_date);
-    var newInfo = {
-        operation:"bulk",
-        type: req.body.type,
-        start_date: req.body.start_date,
-        end_date: req.body.end_date,
-        price:req.body.price,
-        availability: req.body.availability,
-        days:req.body.days
-    };
+    if(req.body && req.body.start_date && req.body.end_date && req.body.price && req.body.availability && req.body.days) {
+        let s_d = new Date(req.body.start_date);
+        let e_d = new Date(req.body.end_date);
+        if(s_d<=e_d) {
+                var newInfo = {
+                operation: "bulk",
+                type: req.body.type,
+                start_date: req.body.start_date,
+                end_date: req.body.end_date,
+                price: req.body.price,
+                availability: req.body.availability,
+                days: req.body.days
+            };
 
-    dbhandler.AlterData(function (result) {
-        console.log(result.status);
-        res.send(200)
-    },newInfo);
+            dbhandler.AlterData(function (result) {
+                console.log(result.status);
+                res.status(200).send('Successful!');
+            }, newInfo);
+        }
+        else{
+            let err = new Error('Invalid content type!');
+            err.status = 404;
+            err.statusCode = 404;
+            res.status(404).send({ error: err });
+        }
+
+    }
+    else{
+        let err = new Error('Invalid content type!');
+        err.status = 404;
+        err.statusCode = 404;
+        res.status(404).send({ error: err });
+    }
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
